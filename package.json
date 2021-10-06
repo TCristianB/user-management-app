@@ -8,7 +8,7 @@
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "dev": "env-cmd -f ./config/dev.env nodemon index.js"
+    "dev": "env-cmd -f dev.env nodemon index.js"
   },
   "keywords": [
     "nodejs",
