@@ -4,7 +4,7 @@
   "description": "a simple user management app ",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd -f ./config/dev.env node index.js",
+    "start": "node index.js",
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
