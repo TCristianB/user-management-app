@@ -1,6 +1,7 @@
 const express = require('express')
 require('./db/mongoose')
 const app = express()
+const path = require("path")
 const cookieParser = require('cookie-parser')
 
 const adminRouter = require('./routers/admin')
