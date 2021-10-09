@@ -39,6 +39,25 @@ const Login = () => {
         }
     }
 
+    const logDemoAccount = async () => {
+        const demoAccountData = {
+            email: 'demo@example.com',
+            password: 'demo'
+        }
+        try {
+            await axios.post('/admin/sign-in', demoAccountData)
+                .then(() => {
+                    window.localStorage.setItem('isLogged', JSON.stringify(true))
+                })
+            history.push('/home')
+        } catch (e) {
+            setErrorMessage('Email or password incorrect')
+            setTimeout(() => {
+                setErrorMessage(null)
+            }, 5000)
+        }
+    }
+
     if (isLogged) {
         return <Redirect to="/home" />
     }
@@ -74,6 +93,7 @@ const Login = () => {
                     <button type="submit" className="btn btn-primary">Log In</button>
                     <p className="mt-3 mb-0">You do not have an account? <Link to="/register">Register</Link></p>
                 </form>
+                <button className="btn btn-primary mt-3" onClick={logDemoAccount}>Use a demo account</button>
             </div>
         </div>
 
